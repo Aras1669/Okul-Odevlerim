@@ -1,0 +1,12 @@
+{
+  "$schema": "node_modules/wrangler/config-schema.json",
+  "name": "okul-odevlerim",
+  "pages_build_output_dir": "./public",
+  "d1_databases": [
+    {
+      "binding": "DB",
+      "database_name": "okul-odevlerim-db",
+      "database_id": "D1_VERITABANI_KIMLIGINIZ"
+    }
+  ]
+}
