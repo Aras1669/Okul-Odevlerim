@@ -1,11 +1,143 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="tr">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Oğuz'a Site</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>SınıfPaneli — Ödev ve Sınıf Takip Platformu</title>
+  <link rel="stylesheet" href="style.css" />
 </head>
 <body>
-    <div id="up"></div>
+  <div class="app-shell">
+    <!-- Üst Gezinme Çubuğu -->
+    <header class="topbar">
+      <div class="topbar-left">
+        <span class="brand-mark" aria-hidden="true">SP</span>
+        <div>
+          <h1 class="brand-title">SınıfPaneli</h1>
+          <p class="brand-subtitle">9-A Sınıfı • Ödev ve Kaynak Merkezi</p>
+        </div>
+      </div>
+
+      <div class="topbar-actions">
+        <label class="role-badge" for="role-select">Rol:</label>
+        <select id="role-select" class="role-select" aria-label="Kullanıcı rolü seçimi">
+          <option value="student" selected>Öğrenci Görünümü</option>
+          <option value="teacher">Öğretmen Görünümü</option>
+        </select>
+        <button type="button" class="btn btn-primary">+ Yeni Ödev</button>
+      </div>
+    </header>
+
+    <!-- Ana Gövde: Sol Menü + Sağ İçerik -->
+    <div class="workspace">
+      <aside class="sidebar" aria-label="Dersler ve filtreler">
+        <div class="sidebar-section">
+          <h2 class="sidebar-heading">Dersler</h2>
+          <ul class="nav-list">
+            <li><a href="#tum-dersler" class="nav-link is-active">Tüm Dersler <span class="pill">6</span></a></li>
+            <li><a href="#matematik" class="nav-link">Matematik <span class="pill">2</span></a></li>
+            <li><a href="#fizik" class="nav-link">Fizik <span class="pill">2</span></a></li>
+            <li><a href="#edebiyat" class="nav-link">Türk Dili ve Ed. <span class="pill">1</span></a></li>
+            <li><a href="#bilisim" class="nav-link">Bilişim / Yazılım <span class="pill">1</span></a></li>
+          </ul>
+        </div>
+
+        <div class="sidebar-section">
+          <h2 class="sidebar-heading">Durum Özeti</h2>
+          <div class="stat-card">
+            <span class="stat-label">Bekleyen Ödev</span>
+            <strong class="stat-value">3</strong>
+          </div>
+          <div class="stat-card">
+            <span class="stat-label">Teslim Edilen</span>
+            <strong class="stat-value">3</strong>
+          </div>
+        </div>
+      </aside>
+
+      <main class="main-content">
+        <!-- Filtre ve Arama Şeridi -->
+        <section class="toolbar" aria-label="Ödev filtreleme">
+          <div class="search-box">
+            <input
+              type="search"
+              class="search-input"
+              placeholder="Ödev başlığı veya ders ara..."
+              aria-label="Ödev başlığı veya ders ara"
+            />
+          </div>
+          <div class="filter-tabs" role="tablist">
+            <button type="button" class="tab-btn is-active" role="tab">Tümü</button>
+            <button type="button" class="tab-btn" role="tab">Bekleyen</button>
+            <button type="button" class="tab-btn" role="tab">Teslim Edildi</button>
+            <button type="button" class="tab-btn" role="tab">Yaklaşan</button>
+          </div>
+        </section>
+
+        <!-- Ödev Kartları Listesi -->
+        <section class="assignments-grid" aria-label="Ödev listesi">
+          <!-- Örnek Kart 1 -->
+          <article class="assignment-card">
+            <div class="card-top">
+              <span class="course-tag course-math">Matematik</span>
+              <span class="status-badge status-pending">Bekliyor</span>
+            </div>
+            <h2 class="card-title">Fonksiyonlar ve Grafik Analizi Çalışma Kağıdı</h2>
+            <p class="card-desc">
+              Verilen 8 grafik üzerinden tanım kümesi, görüntü kümesi ve artan-azalan aralıkları belirleyip kısa açıklamalarını yazın.
+            </p>
+            <div class="card-meta">
+              <span>Son Teslim: <strong>27 Kasım, 23:59</strong></span>
+              <span>Kontrol Listesi: <strong>2/4 adım</strong></span>
+            </div>
+            <div class="card-actions">
+              <button type="button" class="btn btn-secondary">Detay ve Teslim</button>
+              <button type="button" class="btn btn-ghost">Kaynaklar (2)</button>
+            </div>
+          </article>
+
+          <!-- Örnek Kart 2 -->
+          <article class="assignment-card">
+            <div class="card-top">
+              <span class="course-tag course-physics">Fizik</span>
+              <span class="status-badge status-urgent">Son 24 Saat</span>
+            </div>
+            <h2 class="card-title">Hareket ve Kuvvet Laboratuvar Gözlem Raporu</h2>
+            <p class="card-desc">
+              Eğik düzlem deneyinden elde edilen ölçüm verilerini tablolaştırın ve sürtünmenin ivmeye etkisini yorumlayın.
+            </p>
+            <div class="card-meta">
+              <span>Son Teslim: <strong>25 Kasım, 18:00</strong></span>
+              <span>Kontrol Listesi: <strong>3/3 adım</strong></span>
+            </div>
+            <div class="card-actions">
+              <button type="button" class="btn btn-secondary">Detay ve Teslim</button>
+              <button type="button" class="btn btn-ghost">Kaynaklar (1)</button>
+            </div>
+          </article>
+
+          <!-- Örnek Kart 3 -->
+          <article class="assignment-card">
+            <div class="card-top">
+              <span class="course-tag course-cs">Bilişim / Yazılım</span>
+              <span class="status-badge status-done">Teslim Edildi</span>
+            </div>
+            <h2 class="card-title">Algoritma ve Akış Diyagramı Tasarımı</h2>
+            <p class="card-desc">
+              Öğrenci not ortalaması ve devamsızlık durumunu hesaplayan karar yapısının akış diyagramını hazırlayın.
+            </p>
+            <div class="card-meta">
+              <span>Teslim Tarihi: <strong>22 Kasım, 14:20</strong></span>
+              <span>Durum: <strong>İncelenmeyi bekliyor</strong></span>
+            </div>
+            <div class="card-actions">
+              <button type="button" class="btn btn-secondary">Teslimi Görüntüle</button>
+              <button type="button" class="btn btn-ghost">Kaynaklar (3)</button>
+            </div>
+          </article>
+        </section>
+      </main>
+    </div>
+  </div>
 </body>
 </html>
