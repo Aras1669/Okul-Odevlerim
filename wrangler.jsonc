@@ -1,12 +1,14 @@
 {
   "$schema": "node_modules/wrangler/config-schema.json",
   "name": "okul-odevlerim",
+  "compatibility_date": "2025-01-01",
   "pages_build_output_dir": "./public",
   "d1_databases": [
     {
       "binding": "DB",
       "database_name": "okul-odevlerim-db",
-      "database_id": "D1_VERITABANI_KIMLIGINIZ"
+      // `npx wrangler d1 create okul-odevlerim-db` komutunun verdiği kimliği buraya yapıştır
+      "database_id": "BURAYA-D1-DATABASE-ID-YAZ"
     }
   ]
 }

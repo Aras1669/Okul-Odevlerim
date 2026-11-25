@@ -1,76 +1,36 @@
 <!DOCTYPE html>
 <html lang="tr">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Okul Ödevlerim - Google Classroom Klonu</title>
-    <script src="https://cdn.tailwindcss.com"></script>
-    <link rel="stylesheet" href="styles.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Okul Ödevlerim</title>
+  <meta name="description" content="Okul Ödevlerim: öğretmenler için sınıf ve ödev yönetimi, öğrenciler için kolay teslim.">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible:wght@400;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@600;800&display=swap" rel="stylesheet">
+
+  <script src="https://cdn.tailwindcss.com/3.4.17"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['"Atkinson Hyperlegible"', 'ui-sans-serif', 'system-ui', 'sans-serif'],
+            display: ['"Bricolage Grotesque"', '"Atkinson Hyperlegible"', 'ui-sans-serif', 'system-ui', 'sans-serif'],
+          },
+          colors: { ink: '#1B2A41', paper: '#F4F7FB', pen: '#2554D9', margin: '#C93642', marker: '#FFE45E' },
+        },
+      },
+    };
+  </script>
+  <link rel="stylesheet" href="styles.css">
 </head>
-<body class="bg-gray-50 text-gray-800 min-h-screen flex flex-col">
-
-    <header class="bg-indigo-600 text-white shadow-md">
-        <div class="max-w-6xl mx-auto px-4 py-4 flex justify-between items-center">
-            <h1 class="text-xl font-bold flex items-center gap-2">
-                🎓 Okul Ödevlerim
-                <span class="text-xs bg-indigo-800 px-2 py-1 rounded">TÜBİTAK Projesi</span>
-            </h1>
-            <div id="user-info" class="text-sm font-medium"></div>
-        </div>
-    </header>
-
-    <main class="max-w-6xl mx-auto px-4 py-6 flex-grow w-full">
-        
-        <!-- Giriş Ekranı -->
-        <div id="login-section" class="max-w-md mx-auto bg-white p-6 rounded-lg shadow-md mt-10">
-            <h2 class="text-lg font-bold mb-4 text-center">Platforma Giriş Yap</h2>
-            <form id="login-form" class="space-y-4">
-                <div>
-                    <label class="block text-sm font-medium mb-1">Ad Soyad</label>
-                    <input type="text" id="login-name" required class="w-full border px-3 py-2 rounded focus:outline-indigo-600">
-                </div>
-                <div>
-                    <label class="block text-sm font-medium mb-1">E-posta Adresi</label>
-                    <input type="email" id="login-email" required class="w-full border px-3 py-2 rounded focus:outline-indigo-600">
-                </div>
-                <div>
-                    <label class="block text-sm font-medium mb-1">Rol Seçiniz</label>
-                    <select id="login-role" class="w-full border px-3 py-2 rounded focus:outline-indigo-600">
-                        <option value="student">Öğrenci</option>
-                        <option value="teacher">Öğretmen</option>
-                    </select>
-                </div>
-                <button type="submit" class="w-full bg-indigo-600 text-white py-2 rounded hover:bg-indigo-700 font-medium">Giriş Yap</button>
-            </form>
-        </div>
-
-        <!-- Dashboard Ekranı -->
-        <div id="dashboard-section" class="hidden space-y-6">
-            <div class="flex justify-between items-center bg-white p-4 rounded-lg shadow-sm border">
-                <h2 class="text-xl font-bold">Sınıflarım</h2>
-                <div id="action-buttons"></div>
-            </div>
-
-            <div id="classes-grid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6"></div>
-
-            <div id="class-detail" class="hidden bg-white p-6 rounded-lg shadow-md border space-y-4">
-                <button id="back-to-classes" class="text-sm text-indigo-600 hover:underline">← Sınıflara Dön</button>
-                <div id="class-detail-header"></div>
-                <hr>
-                <div class="flex justify-between items-center">
-                    <h3 class="text-lg font-bold">Ödevler</h3>
-                    <button id="add-assignment-btn" class="hidden text-sm bg-green-600 text-white px-3 py-1.5 rounded hover:bg-green-700">+ Yeni Ödev Ekle</button>
-                </div>
-                <div id="assignments-list" class="space-y-3"></div>
-            </div>
-        </div>
-
-    </main>
-
-    <footer class="bg-gray-100 border-t py-4 text-center text-xs text-gray-500">
-        Cloudflare Pages & D1 Veritabanı Altyapısı | okul-odevlerim.pages.dev
-    </footer>
-
-    <script src="app.js"></script>
+<body>
+  <div id="app"></div>
+  <div id="toasts" class="fixed bottom-4 right-4 z-50 flex max-w-[calc(100vw-2rem)] flex-col gap-2" aria-live="polite"></div>
+  <noscript><p style="padding:2rem">Okul Ödevlerim çalışmak için JavaScript'e ihtiyaç duyar. Tarayıcında JavaScript'i aç.</p></noscript>
+  <script src="app.js" defer></script>
 </body>
 </html>
