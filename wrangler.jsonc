@@ -1,9 +1,12 @@
 {
+  "$schema": "node_modules/wrangler/config-schema.json",
+  "name": "okul-odevlerim",
   "pages_build_output_dir": "public",
+  "compatibility_date": "2026-04-01",
   "d1_databases": [
     {
       "binding": "DB",
-      "database_name": "okul_odevlerim",
+      "database_name": "okul-odevlerim",
       "database_id": "86381450-07c6-4641-bd8b-eec8ca272d5e"
     }
   ]
