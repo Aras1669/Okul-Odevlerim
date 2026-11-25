@@ -8,7 +8,7 @@
       "binding": "DB",
       "database_name": "okul-odevlerim-db",
       // `npx wrangler d1 create okul-odevlerim-db` komutunun verdiği kimliği buraya yapıştır
-      "database_id": "BURAYA-D1-DATABASE-ID-YAZ"
+      "database_id": "86381450-07c6-4641-bd8b-eec8ca272d5e"
     }
   ]
 }
